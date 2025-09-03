@@ -101,16 +101,19 @@ eval "$(oh-my-posh init zsh --config $(brew --prefix jandedobbeleer/oh-my-posh/o
 3. **Select theme** by typing the exact name
 4. **Confirm selection** before applying changes
 
-### Popular Themes
-Some popular Oh My Posh themes include:
-- `agnoster`
-- `paradox` 
-- `powerline`
-- `robbyrussell`
-- `spaceship`
-- `star`
-- `tokyo`
+### Favourite Themes
+My Favourite Oh My Posh themes:
+- `bubblesextra`
+- `catppuccin` 
+- `chips`
+- `cloud-native-azure`
+- `craver`
 - `dracula`
+- `json`
+- `powerlevel10k_modern`
+- `easy-term`
+- `gruvbox`
+- `thecyberden`
 
 ### Apply Changes
 After setting a theme, apply changes by either:
