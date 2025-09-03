@@ -187,9 +187,15 @@ set_theme() {
         print_color $GREEN "Created ~/.zshrc file."
     fi
     
-    # Create backup of .zshrc
-    cp "$zshrc" "${zshrc}.backup.$(date +%Y%m%d_%H%M%S)"
-    print_color $GREEN "Created backup of ~/.zshrc"
+    # Ask user if they want to create a backup
+    print_color $YELLOW "Do you want to create a backup of your current ~/.zshrc file?"
+    
+    if confirm "Create backup of ~/.zshrc?"; then
+        cp "$zshrc" "${zshrc}.backup.$(date +%Y%m%d_%H%M%S)"
+        print_color $GREEN "✅ Created backup of ~/.zshrc"
+    else
+        print_color $YELLOW "⚠️  Skipping backup creation. Proceeding without backup."
+    fi
     
     # New Oh My Posh configuration line
     local new_config="eval \"\$(oh-my-posh init zsh --config \$(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes/${selected_theme}.omp.json)\""
