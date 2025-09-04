@@ -13,6 +13,9 @@ Cross-platform prompt theme engine with beautiful themes and extensive customiza
 ### [macOS Setup Script](./mac/)  
 A comprehensive automated setup script for configuring a complete macOS development environment, including terminal, shell, themes, and essential tools.
 
+### [zshrc config file](./zsh/)
+Custom `.zshrc` file containing shell settings, plugins, and theme configuration for an optimized terminal experience.
+
 
 ## Quick Start
 
@@ -31,6 +34,7 @@ A comprehensive automated setup script for configuring a complete macOS developm
    - Follow the [Ghostty setup guide](./ghostty/README.md)
    - Follow the [Oh My Posh setup guide](./oh-my-posh/README.md)
    - Follow the [Mac os setup guide](./Mac/README.md)
+   - Apply the [Zsh Configuration](./zsh/.zshrc)
 
 ## 📋 Prerequisites
 
