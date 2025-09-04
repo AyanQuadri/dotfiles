@@ -3,7 +3,7 @@
 term=xterm-256color
 
 #font-family = Hack Nerd Font Mono Bold
-font-size = 14
+font-size = 15
 font-style = "Bold"
 font-thicken = true
 
@@ -11,7 +11,7 @@ font-thicken = true
 
 # 85 columns × 20 rows
 window-width  = 85
-window-height = 24
+window-height = 23
 
 font-family = Menlo Bold
 #theme = tokyonight
