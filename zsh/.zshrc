@@ -22,4 +22,53 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-eval "$(oh-my-posh init zsh --config $(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes/catppuccin.omp.json)"
+# eval "$(oh-my-posh init zsh --config $(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes/catppuccin.omp.json)"
+
+# -----------------------------
+# Oh My Posh Theme Switcher (mkdir -p ~/.config/oh-my-posh)
+# -----------------------------
+function setposh() {
+  local theme=$1
+  local theme_dir="$(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes"
+
+  if [ -z "$theme" ]; then
+    echo "\nUsage: setposh <theme-name>\n" # setposh $(listposh | fzf)
+    # echo "Available themes are in: $(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes/"
+    return 1
+  fi
+
+  # Check if theme exists
+  if [[ ! -f "$theme_dir/$theme.omp.json" ]]; then
+    echo "\n❌ Theme '$theme' not found in $theme_dir/"
+    return 1
+  fi
+
+  cp "$theme_dir/$theme.omp.json" ~/.config/oh-my-posh/config.omp.json
+  echo "\n🔄 Switched to $theme theme.\n"
+
+  # source ~/.zshrc
+  # Re-initialize oh-my-posh
+  eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+}
+
+function listposh() {
+  local theme_dir="$(brew --prefix jandedobbeleer/oh-my-posh/oh-my-posh)/themes"
+  
+  if [[ -d "$theme_dir" ]]; then
+    themes=(${theme_dir}/*.omp.json(:t:r:r))
+    echo "\n📂 Found ${#themes} oh-my-posh themes:\n"
+    # for i in {1..$#themes}; do
+    #   printf "%-3d %s\n" $i $themes[i]
+    # done | column -t
+    # Output ONLY theme names (one per line)
+    print -l ${theme_dir}/*.omp.json(:t:r:r)
+  else
+    echo "❌ oh-my-posh themes directory not found: $theme_dir"
+    return 1
+  fi
+}
+
+# Init Oh My Posh (loads whatever config is in ~/.config/oh-my-posh/config.omp.json)
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+
+alias posh-pick="setposh \$(listposh | fzf)"
