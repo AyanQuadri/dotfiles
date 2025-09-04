@@ -1,6 +1,6 @@
-# My macOS Dotfiles
+# My Dotfiles
 
-A curated collection of configuration files and setup scripts for macOS development environment.
+A curated collection of configuration files and setup scripts for development environment.
 
 ## Components
 
@@ -9,6 +9,10 @@ Modern GPU-accelerated terminal emulator with excellent performance and customiz
 
 ### [Oh My Posh](./oh-my-posh/)
 Cross-platform prompt theme engine with beautiful themes and extensive customization.
+
+### [macOS Setup Script](./mac/)  
+A comprehensive automated setup script for configuring a complete macOS development environment, including terminal, shell, themes, and essential tools.
+
 
 ## Quick Start
 
@@ -26,6 +30,7 @@ Cross-platform prompt theme engine with beautiful themes and extensive customiza
 3. **Setup each component**
    - Follow the [Ghostty setup guide](./ghostty/README.md)
    - Follow the [Oh My Posh setup guide](./oh-my-posh/README.md)
+   - Follow the [Mac os setup guide](./Mac/README.md)
 
 ## 📋 Prerequisites
 
