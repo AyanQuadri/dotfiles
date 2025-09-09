@@ -92,7 +92,7 @@
           "foreground": "p:exec_fg",
           "properties": {
             "threshold": 0,
-            "style": "dallas"
+            "style": "roundrock"
           },
           "style": "diamond",
           "template": " \uf252 {{ .FormattedMs }} ",
