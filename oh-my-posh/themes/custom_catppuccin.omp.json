@@ -95,7 +95,7 @@
           "background": "p:exec_bg",
           "foreground": "p:exec_fg",
           "properties": {
-            "threshold": 0,
+            "threshold": 150,
             "style": "roundrock"
           },
           "style": "diamond",
@@ -129,58 +129,6 @@
           "type": "node"
         },
         {
-          "background": "p:go_bg",
-          "foreground": "p:go_fg",
-          "properties": {
-            "display_mode": "context",
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " Go \ue626 {{ .Full }} ",
-          "type": "go"
-        },
-        {
-          "background": "p:ruby_bg",
-          "foreground": "p:ruby_fg",
-          "properties": {
-            "display_mode": "context",
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " Ruby \ue791 {{ .Full }} ",
-          "type": "ruby"
-        },
-        {
-          "background": "p:java_bg",
-          "foreground": "p:java_fg",
-          "properties": {
-            "display_mode": "context",
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " Java \ue738 {{ .Full }} ",
-          "type": "java"
-        },
-        {
-          "background": "p:julia_bg",
-          "foreground": "p:julia_fg",
-          "properties": {
-            "display_mode": "context",
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " Julia \ue624 {{ .Full }} ",
-          "type": "julia"
-        },
-        {
           "background": "#ce422b",
           "foreground": "#000000",
           "properties": {
@@ -192,25 +140,11 @@
           "trailing_diamond": "\ue0b4",
           "template": " \ue7a8 ",
           "type": "rust"
-        },
-        {
-          "background": "p:php_bg",
-          "foreground": "p:php_fg",
-          "properties": {
-            "display_mode": "context",
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " PHP \ue73d {{ .Full }} ",
-          "type": "php"
         }
       ],
       "type": "rprompt"
     }
   ],
-  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "final_space": true,
   "transient_prompt": {
     "background": "transparent",
