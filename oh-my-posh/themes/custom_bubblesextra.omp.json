@@ -63,20 +63,27 @@
           "type": "node"
         },
         {
+          "background": "#44BAED",
+          "foreground": "#29315A",
+          "leading_diamond": " \ue0b6",
+          "style": "diamond",
+          "template": "\ue5ff ",
+          "type": "text"
+        },
+        {
           "background": "#29315A",
           "foreground": "#44BAED",
-          "leading_diamond": " \ue0b6",
           "properties": {
             "style": "folder"
           },
           "style": "diamond",
-          "template": "\ue5ff {{ .Path }}",
+          "template": " {{ .Path }}",
           "trailing_diamond": "\ue0b4",
           "type": "path"
         },
         {
-          "background": "#29315A",
-          "foreground": "#F05233",
+          "background": "#151B23",
+          "foreground": "#D1D7E0",
           "foreground_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
@@ -96,29 +103,39 @@
         },
         {
           "background_templates": [
-            "{{ if and (eq \"Discharging\" .State.String) (ge .Percentage 21) }}#29315A{{ end }}",
-            "{{ if and (eq \"Discharging\" .State.String) (le .Percentage 20) }}#29315A{{ end }}",
-            "{{ if and (eq \"Charging\" .State.String) (ge .Percentage 21) }}#23C062{{ end }}",
-            "{{ if and (eq \"Charging\" .State.String) (le .Percentage 20) }}#E64747{{ end }}"
+            "{{ if ge .Percentage 21 }}#9FE3A1{{ end }}",
+            "{{ if le .Percentage 20 }}#E64747{{ end }}"
           ],
-          "foreground_templates": [
-            "{{ if and (eq \"Discharging\" .State.String) (ge .Percentage 21) }}#23C062{{ end }}",
-            "{{ if and (eq \"Discharging\" .State.String) (le .Percentage 20) }}#E64747{{ end }}",
-            "{{ if and (eq \"Charging\" .State.String) (ge .Percentage 21) }}#29315A{{ end }}",
-            "{{ if and (eq \"Charging\" .State.String) (le .Percentage 20) }}#29315A{{ end }}"
-          ],
+          "foreground": "#29315A",
           "leading_diamond": " \ue0b6",
           "style": "diamond",
-          "template": "{{ if not .Error }}{{ if eq \"Charging\" .State.String }}\uE315 {{ else if eq \"Discharging\" .State.String }}{{ else if eq \"Full\" .State.String }}~ {{ else }}? {{ end }}{{ if le .Percentage 15 }}\udb80\udc7a{{ else if and (ge .Percentage 16) (le .Percentage 30) }}\udb80\udc7b{{ else if and (ge .Percentage 31) (le .Percentage 45) }}\udb80\udc7d{{ else if and (ge .Percentage 46) (le .Percentage 55)}}\udb80\udc7e{{ else if and (ge .Percentage 56) (le .Percentage 70) }}\udb80\udc7f{{ else if and (ge .Percentage 71) (le .Percentage 80) }}\udb80\udc82{{ else if and (ge .Percentage 81) (le .Percentage 95) }}\udb80\udc82{{ else }}\udb80\udc79{{ end }} {{ .Percentage }}%{{ else }}!{{ end }}",
-          "trailing_diamond": "\ue0b4",
+          "template": "{{ if not .Error }}{{ if eq \"Charging\" .State.String }}\uE315 {{ else if eq \"Discharging\" .State.String }}{{ else if eq \"Full\" .State.String }}~ {{ else }}? {{ end }}{{ if le .Percentage 15 }}\udb80\udc7a{{ else if and (ge .Percentage 16) (le .Percentage 30) }}\udb80\udc7b{{ else if and (ge .Percentage 31) (le .Percentage 45) }}\udb80\udc7d{{ else if and (ge .Percentage 46) (le .Percentage 55)}}\udb80\udc7e{{ else if and (ge .Percentage 56) (le .Percentage 70) }}\udb80\udc7f{{ else if and (ge .Percentage 71) (le .Percentage 80) }}\udb80\udc82{{ else if and (ge .Percentage 81) (le .Percentage 95) }}\udb80\udc82{{ else }}\udb80\udc79{{ end }} {{ else }}!{{ end }}",
           "type": "battery"
         },
         {
           "background": "#29315A",
-          "foreground": "#AEA4BF",
+          "foreground_templates": [
+            "{{ if ge .Percentage 21 }}#9FE3A1{{ end }}",
+            "{{ if le .Percentage 20 }}#E64747{{ end }}"
+          ],
+          "style": "diamond",
+          "template": " {{ .Percentage }}%",
+          "trailing_diamond": "\ue0b4",
+          "type": "battery"
+        },
+        {
+          "background": "#AEA4BF",
+          "foreground": "#29315A",
           "leading_diamond": " \ue0b6",
           "style": "diamond",
-          "template": "\udb86\udd9f {{ .CurrentDate | date .Format }}",
+          "template": "\udb86\udd9f ",
+          "type": "text"
+        },
+        {
+          "background": "#29315A",
+          "foreground": "#AEA4BF",
+          "style": "diamond",
+          "template": " {{ .CurrentDate | date .Format }}",
           "trailing_diamond": "\ue0b4",
           "type": "time",
           "properties": {
