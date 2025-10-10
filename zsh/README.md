@@ -7,12 +7,14 @@ A customized Zsh configuration featuring both **Powerlevel10k** and **Oh My Posh
 ### Dual Theme Engine Support
 - **🔋 Powerlevel10k** - Fast, customizable prompt (commented out)
 - **⚡ Oh My Posh** - Cross-platform prompt with dynamic theme switching
+- **✨ Starship** - Minimal, fast, and customizable prompt
 - **🔄 Easy Switching** - Toggle between theme engines as needed
 
 ### Essential Plugins
 - **📝 zsh-autosuggestions** - Fish-like autosuggestions for commands
 - **🎨 zsh-syntax-highlighting** - Real-time syntax highlighting
 - **🔧 git** - Git integration and shortcuts
+- **🚀 zoxide** - Smarter cd command with directory jumping
 
 ### Custom Functions
 - **🎭 `setposh <theme>`** - Dynamically switch Oh My Posh themes
@@ -59,6 +61,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Oh My Posh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 
+# Starship (alternative prompt)
+brew install starship
+
+# zoxide (smarter cd)
+brew install zoxide
+
 # Essential plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -71,6 +79,9 @@ brew install fzf
 ```bash
 # Create Oh My Posh config directory
 mkdir -p ~/.config/oh-my-posh
+
+# Create Starship config directory
+mkdir -p ~/.config
 ```
 
 ## 🎭 Theme Management
@@ -107,6 +118,30 @@ setposh gruvbox
 #### Enable Oh My Posh (Default)
 The configuration uses Oh My Posh by default with the current setup.
 
+#### Switch to Starship
+To use Starship instead:
+
+1. **Comment out Oh My Posh line:**
+   ```bash
+   # eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+   ```
+
+2. **Add Starship initialization:**
+   ```bash
+   eval "$(starship init zsh)"
+   ```
+
+3. **Configure Starship (optional):**
+   ```bash
+   # Create/edit Starship config
+   nvim ~/.config/starship.toml
+   ```
+
+4. **Reload configuration:**
+   ```bash
+   source ~/.zshrc
+   ```
+
 #### Switch to Powerlevel10k
 To use Powerlevel10k instead:
 
@@ -126,6 +161,36 @@ To use Powerlevel10k instead:
    source ~/.zshrc
    p10k configure  # Configure Powerlevel10k
    ```
+
+## 🚀 Zoxide Usage
+
+### Basic Commands
+```bash
+# Use 'z' to jump to a directory you've visited before
+z myproject        # Jumps to ~/Documents/code/myproject
+
+# Quick navigation
+z -                # Jump to previous directory
+z ..               # Same as cd ..
+
+# Interactive fuzzy search
+zi                 # Shows interactive list of directories
+zi blog            # Search for directories matching "blog"
+```
+
+### Advanced Features
+```bash
+# Manually add current directory to zoxide
+zoxide add .
+
+# Query zoxide database
+zoxide query              # Shows most used directories
+zoxide query blog         # Find best match for "blog"
+zoxide query -l -s        # Show all history with scores
+
+# Remove directory from database
+zoxide remove /path/to/dir
+```
 
 ## ⚙️ Configuration Details
 
@@ -147,6 +212,16 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 #### Oh My Posh Initialization
 ```bash
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+```
+
+#### Zoxide Initialization
+```bash
+eval "$(zoxide init zsh)"
+```
+
+#### Starship Initialization (Alternative)
+```bash
+eval "$(starship init zsh)"
 ```
 
 ### Custom Function Details
@@ -246,6 +321,9 @@ $ git sta[→] → git status
 # zsh-syntax-highlighting: Commands are colored as you type
 $ ls     # Green if command exists
 $ lss    # Red if command doesn't exist
+
+# zoxide: Smart directory jumping
+$ z docs  # Jumps to ~/Documents if you've been there before
 ```
 
 ## 🛠 Troubleshooting
@@ -260,6 +338,30 @@ ls -la ~/.config/oh-my-posh/
 
 # Manually initialize
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+```
+
+### Starship Not Working
+```bash
+# Check Starship installation
+starship --version
+
+# Check config
+cat ~/.config/starship.toml
+
+# Manually initialize
+eval "$(starship init zsh)"
+```
+
+### Zoxide Not Working
+```bash
+# Check zoxide installation
+zoxide --version
+
+# Manually initialize
+eval "$(zoxide init zsh)"
+
+# Check database
+zoxide query -l
 ```
 
 ### Themes Not Displaying Correctly
@@ -343,13 +445,16 @@ ln -sf ~/dotfiles/zsh/current-theme.omp.json ~/.config/oh-my-posh/config.omp.jso
 - [Oh My Zsh Documentation](https://ohmyz.sh/)
 - [Oh My Posh Themes Gallery](https://ohmyposh.dev/docs/themes)
 - [Powerlevel10k Documentation](https://github.com/romkatv/powerlevel10k)
+- [Starship Documentation](https://starship.rs/)
+- [Zoxide Documentation](https://github.com/ajeetdsouza/zoxide)
 - [Zsh Plugin List](https://github.com/unixorn/awesome-zsh-plugins)
 
 ## 🎯 Features Summary
 
-- ✅ **Dual theme engine support** (Powerlevel10k + Oh My Posh)
+- ✅ **Triple theme engine support** (Powerlevel10k + Oh My Posh + Starship)
 - ✅ **Dynamic theme switching** with custom functions
 - ✅ **Essential productivity plugins**
+- ✅ **Smart directory navigation** with zoxide
 - ✅ **Interactive theme selection** with fzf integration
 - ✅ **Easy customization** and extension
 - ✅ **Proper error handling** and validation
