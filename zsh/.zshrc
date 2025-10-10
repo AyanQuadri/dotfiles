@@ -69,6 +69,17 @@ function listposh() {
 }
 
 # Init Oh My Posh (loads whatever config is in ~/.config/oh-my-posh/config.omp.json)
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.omp.json)"
 
 alias posh-pick="setposh \$(listposh | fzf)"
+
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+alias ll="eza --color=always --long --git --icons=always --no-user --no-permissions --no-time --no-filesize -a"
+alias ls="eza --color=always --long --git --icons=always --no-user --no-permissions --no-time --no-filesize" 
