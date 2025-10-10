@@ -2,20 +2,23 @@
 # ~/.config/ghostty/config
 term=xterm-256color
 
-#font-family = Hack Nerd Font Mono Bold
-font-family = Menlo Bold
-font-size = 15
+font-family = JetBrains Mono
+#font-family = Menlo Bold
+font-size = 13
 font-style = "Bold"
 font-thicken = true
 
 # 85 columns × 20 rows
-window-width  = 94
-window-height = 25
+window-width  = 115
+window-height = 30
 
 #theme = tokyonight
 #theme = catppuccin-frappe
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 #theme = Raycast_Dark
-
-background-opacity = 0.9
+#background-opacity = 0.7
+background-blur-radius = 20
 mouse-hide-while-typing = true
+
+macos-titlebar-style = hidden
+
